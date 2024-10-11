@@ -84,7 +84,7 @@ nav ul li a {
 
 .logo::before {
     content: "";
-    background-image: url('../../Code/assets/photos/logo.png'); /* Path gambar logo */
+    background-image: url('../assets/photos/logo.png'); /* Path gambar logo */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
