@@ -18,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     width: 100%;
     position: fixed; /* Menempel di bagian atas layar */
     top: 0;
@@ -390,11 +390,27 @@ footer a {
         display: block;
     }
 
-    /* Display the hamburger menu on mobile */
     .hamburger {
         display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        position: absolute; /* Posisikan di sudut kanan atas */
+        top: 20px; /* Sesuaikan agar berada di dalam header */
+        right: 20px; /* Sejajarkan ke tepi kanan */
         z-index: 2;
     }
+    
+    .hamburger .bar {
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
 
     /* Styles for when the menu is open */
     .hamburger.active .bar:nth-child(1) {
@@ -418,7 +434,7 @@ footer a {
     header {
         flex-direction: column; /* Mengatur header menjadi kolom */
         align-items: flex-start;
-        padding: 10px;
+        /* padding: 10px; */
     }
 
     .logo {
@@ -432,7 +448,7 @@ footer a {
     }
 
     .search-bar {
-        margin: 10px 0; /* Jarak atas dan bawah */
+        /* margin: 5px 0; Jarak atas dan bawah */
         flex: 1;
         margin-right: 0; /* Remove right margin for mobile */
         margin-left: auto; /* Push search bar to the right */
@@ -443,7 +459,7 @@ footer a {
     .main-banner {
         flex-direction: column; /* Mengatur banner utama menjadi kolom */
         padding: 20px; /* Padding lebih kecil untuk tampilan mobile */
-        margin-top: 80px;
+        margin-top: 40px;
     }
 
     .promo-banner {
