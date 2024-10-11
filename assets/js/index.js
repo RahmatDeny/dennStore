@@ -84,6 +84,8 @@ searchBar.addEventListener('keydown', function(event) {
             const gameLink = matchedProducts[0].querySelector('a').getAttribute('href');
             window.location.href = gameLink; // Arahkan ke halaman game
         }
+
+        // Kosongkan input search bar setelah menekan 'Enter'
+        searchBar.value = ''; // Menghapus isi search bar
     }
 });
-
