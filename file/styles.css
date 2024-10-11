@@ -1,8 +1,15 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
+    padding-top: 60px; /* Sesuaikan dengan tinggi header */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -12,15 +19,74 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+    width: 100%;
+    position: fixed; /* Menempel di bagian atas layar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.527); /* Tambahkan bayangan */
+    transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+/* Efek saat pengguna menggulir halaman */
+header.scrolled {
+    background-color: #333(0, 0, 0, 0.9); /* Header menjadi lebih transparan saat scroll */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.445); /* Tambahkan bayangan yang lebih kuat */
 }
 
-.home-icon {
-    width: 40px; /* Sesuaikan ukuran ikon */
-    height: 40px;
-    margin-right: 5px; /* Jarak antara ikon dan teks */
-    margin-left: 15px;
-    vertical-align: middle; /* Menyelaraskan ikon dengan teks */
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
 }
+
+.logo::before {
+    content: "";
+    background-image: url('assets/photos/logo.png'); /* Ganti dengan path gambar logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px; /* Sesuaikan lebar logo */
+    height: 50px; /* Sesuaikan tinggi logo */
+    margin-right: 1px; /* Jarak antara logo dan teks */
+}
+/* Hide the Masuk/Daftar in nav menu for desktop */
+.mobile-only {
+    display: none;
+}
+
+/* Make the search bar take the whole width in mobile */
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    width: 200px; /* Adjust width as necessary */
+    margin-right: 20px; /* Ensure space between search bar and login/register */
+}
+
+/* Styles for the hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hide the navigation menu by default on mobile */
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 
 nav ul {
@@ -39,30 +105,17 @@ nav ul li a {
     text-decoration: none;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo::before {
-    content: "";
-    background-image: url('../../Code/assets/photos/logo.png'); /* Ganti dengan path gambar logo */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 70px; /* Sesuaikan lebar logo */
-    height: 70px; /* Sesuaikan tinggi logo */
-    margin-right: 5px; /* Jarak antara logo dan teks */
-}
-
 .header-right {
     display: flex;
     align-items: center;
 }
 
+/* Styling for the search bar */
 .search-bar {
     padding: 5px;
-    margin-right: 20px;
+    border: none;
+    border-radius: 3px;
+    width: 200px;
 }
 
 .account-icon, .cart-icon {
@@ -71,265 +124,151 @@ nav ul li a {
     text-decoration: none;
 }
 
-.container {
-    width: 100%;
-    max-width: 90%;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-}
-
-h1 {
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-h2 {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.section {
-    margin-bottom: 20px;
-}
-
-.section h3 {
-    color: #ff0303;
-}
-
-.input-group {
+.main-banner {
     display: flex;
-    gap: 10px;
-}
-
-.input-group input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.category button {
-    padding: 10px;
-    margin: 5px;
-    background-color: #252fb3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px;
+    background-color: #87e68b;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.category button:hover {
-    background-color: #ff0000;
+.promo-banner {
+    width: 25%; 
+    background-color: #333;
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 15px;
 }
 
-/* Penyesuaian Layout Item di Mobile */
-.items {
+.promo-banner h2 {
+ color:#ff0000;
+}
+
+/* .slider {
+    width: 65%;
+} */
+
+.slider-container {
+    width: 100%; /* Sesuaikan dengan ukuran container */
+    overflow: hidden; /* Menyembunyikan bagian yang tidak terlihat */
+    position: relative;
+}
+
+.slider {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    transition: transform 0.5s ease-in-out;
+    padding: 0; /* Menghapus padding tambahan */
+    margin: 0 auto; /* Pusatkan slider */
+    width: 100%; /* Pastikan slider memenuhi layar */
 }
 
-.items .item {
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 5px;
-    width: calc(50% - 10px); /* Menyesuaikan lebar item untuk layar kecil */
+.slide {
+    min-width: 100%;
     box-sizing: border-box;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+.product-categories, .new-products, .user-testimonials {
+    padding: 20px;
     text-align: center;
 }
 
-/* Gambar item lebih kecil di mobile */
-.items .item img {
-    width: 60px;
-    height: 60px;
+.product-categories h2, .new-products h2, .user-testimonials h2 {
+    margin-bottom: 20px;
 }
 
-
-/* Styles for selected items */
-.item.selected {
-    border: 2px solid #ff0000;
-    background-color: #f0f0f0;
+.category {
+    display: inline-block;
+    margin: 10px;
 }
 
-/* Styles for selected payment method */
-.payment-options label.selected {
-    border: 2px solid #ff0000;
-    background-color: #ffe0e0;
+.category img {
+    width: 150px;
+    height: 150px;
 }
 
-.payment label {
-    display: block;
-    padding: 10px 0;
-}
-
-.purchase input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.payment-options {
+.product-grid {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-list h2 {
+    text-align: center;
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
-.payment-options label {
-    font-size: 16px;
-    padding: 10px;
-    background-color: #EDE7F6;
-    border-radius: 5px;
-    cursor: pointer;
+.product-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100px; /* Lebar container pembayaran */
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.payment-options input[type="radio"] {
-    display: none;
+.product-item {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #ddd;
+    width: 22%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.payment-options label img {
-    width: 70px; /* Ukuran ikon pembayaran */
-    height: 40px;
-    margin-bottom: 5px;
+.product-item img {
+    width: 150px;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
 }
 
-.payment-options label span {
-    margin-top: 5px;
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #000000;
 }
 
-.purchase input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Tambahkan margin bawah untuk input kode promo */
-#promoCode {
+.product-item .game-type {
+    font-size: 14px;
+    color: #888;
     margin-bottom: 10px;
 }
 
-
-
-#buyButton {
-    width: 100%;
-    padding: 15px;
-    background-color: #0eb905;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.product-item .price {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-#buyButton:hover {
-    background-color: #ff0000;
+.product-item .rating {
+    font-size: 14px;
+    color: #ff9800;
 }
 
-/* Pop-up Invoice */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
 
-.popup-content {
-    background-color: white;
+.promotion-banner {
+    background-color: #ff9800;
     padding: 20px;
-    border-radius: 10px;
+    color: white;
     text-align: center;
-    width: 300px;
 }
 
-.popup-content h2 {
-    margin-top: 0;
-}
-
-.popup-content button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#payNowButton {
-    background-color: #0eb905;
-    color: white;
-}
-
-#payLaterButton {
-    background-color: #ff0000;
-    color: white;
-}
-
-/* Loading spinner */
-.loading-spinner {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-}
-
-/* Animasi putaran spinner */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Pop-up untuk Loading dan Berhasil */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-}
-
-.popup-content h2 {
-    margin-top: 0;
-}
-
-.popup-content button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: white;
-}
 
 footer {
     background-color: #333;
@@ -356,65 +295,177 @@ footer a {
     margin: 0 10px;
 }
 
-/* Media Queries for Mobile (Screens smaller than 600px) */
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px; /* Smaller font size on mobile */
-        padding: 10px;
+/* Kelas untuk efek berpendar */
+.glow {
+    animation: glow 1s ease-in-out infinite alternate;
+    border-radius: 10px; /* Membuat sudut gambar lebih lembut */
+}
+
+/* Efek animasi berpendar di sekitar gambar */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(244, 10, 10, 0.66), 0 0 15px rgba(255, 4, 4, 0.6);
     }
-    
-    .container {
-        padding: 5px;
+    50% {
+        box-shadow: 0 0 25px rgba(255, 68, 68, 0.7), 0 0 30px rgba(255, 44, 44, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(240, 71, 71, 0.532), 0 0 15px rgba(249, 47, 47, 0.568);
+    }
+}
+
+/* Styles for larger screens */
+@media only screen and (min-width: 769px) {
+    .product-item {
+        width: 22%; /* Lebar produk di desktop */
     }
 
-    main {
-        flex-direction: column; /* Stack content and sidebar on top of each other */
+    .category img {
+        width: 150px; /* Ukuran gambar kategori di desktop */
+        height: 150px;
     }
 
-    .content, .sidebar {
-        flex: 1 1 100%; /* Full width on mobile */
-        padding: 5px;
+    .main-banner {
+        padding: 70px; /* Padding lebih besar di desktop */
+        
     }
-
-    img {
-        max-width: 100%; /* Ensure images are not wider than their container */
-        height: auto;
-    }
-
-    footer {
-        font-size: 12px; /* Smaller footer font on mobile */
-    }
-    header {
-        flex-direction: column; /* Header menjadi kolom pada layar kecil */
-        align-items: flex-start;
-    }
-
-    .logo {
-        margin-bottom: 10px; /* Mengatur jarak logo pada layar kecil */
-    }
-
-    .header-right {
-        width: 100%;
-        justify-content: space-between;
+    .desktop-only {
+        display: block; /* Show login/register on desktop */
     }
 
     .search-bar {
+        order: -1; /* Move search bar to the left of login/register */
+        margin-right: 20px; /* Add space between search bar and login/register */
+    }
+    .nav-menu {
+        gap: 30px; /* Adjust spacing between the menu items */
+    }
+
+    .header-right {
+        margin-left: 40px; /* Increase space between nav-menu and search bar */
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        right: 0;
         width: 100%;
-        margin: 10px 0;
+        z-index: 1;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-menu ul li {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid white;
+    }
+
+    .nav-menu ul li a {
+        color: white;
+        text-decoration: none;
+        width: 100%;
+    }
+
+    /* Hide the desktop-only login button */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Show the Masuk/Daftar in the nav menu */
+    .mobile-only {
+        display: block;
+    }
+
+    /* Display the hamburger menu on mobile */
+    .hamburger {
+        display: flex;
+        z-index: 2;
+    }
+
+    /* Styles for when the menu is open */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    .search-bar {
+        flex: 1;
+        margin-right: 0; /* Remove right margin for mobile */
+        margin-left: auto; /* Push search bar to the right */
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column; /* Mengatur header menjadi kolom */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Jarak bawah logo */
+    }
+    
+
+    .header-right {
+        width: 100%; /* Lebar penuh untuk elemen kanan */
+        justify-content: space-between; /* Menjaga jarak antara input pencarian dan tautan akun */
+    }
+
+    .search-bar {
+        margin: 10px 0; /* Jarak atas dan bawah */
+        flex: 1;
+        margin-right: 0; /* Remove right margin for mobile */
+        margin-left: auto; /* Push search bar to the right */
+        width: 100%;
+        
+    }
+
+    .main-banner {
+        flex-direction: column; /* Mengatur banner utama menjadi kolom */
+        padding: 20px; /* Padding lebih kecil untuk tampilan mobile */
+        margin-top: 80px;
+    }
+
+    .promo-banner {
+    width: 100%; /* Lebar penuh untuk promo */
+    margin: 0 auto 20px auto; /* Tengah secara horizontal, jarak bawah 20px */
+    display: block; /* Pastikan elemen blok */
+    text-align: center; /* Pastikan konten di dalamnya juga rata tengah */
+
+        
+    }
+
+    .slider img {
+        max-height: 200px; /* Mengurangi tinggi maksimum gambar */
+    }
+
+    .product-item {
+        width: 90%; /* Mengatur lebar produk di mobile */
+    }
+
+    .category img {
+        width: 100px; /* Mengurangi ukuran gambar kategori */
+        height: 100px;
     }
 }
 
-/* Media Queries for Tablet (Screens between 600px and 1024px) */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .content {
-        flex: 1 1 60%; /* 60% width on tablets */
-    }
-
-    .sidebar {
-        flex: 1 1 40%; /* 40% width on tablets */
-    }
-
-    body {
-        font-size: 15px; /* Adjusted font size for tablets */
-    }
-}
