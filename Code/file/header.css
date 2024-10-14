@@ -1,0 +1,261 @@
+
+/* Hide the Masuk/Daftar in nav menu for desktop */
+.mobile-only {
+    display: none;
+}
+
+/* Styles for the hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hide the navigation menu by default on mobile */
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the search bar */
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    width: 200px;
+}
+/* Make the search bar take the whole width in mobile */
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    width: 200px; /* Adjust width as necessary */
+    margin-right: 20px; /* Ensure space between search bar and login/register */
+}
+
+/* Style untuk button */
+.btn {
+    padding: 5px 10px; /* Menyesuaikan padding untuk tombol */
+    border-radius: 20px; /* Radius tombol */
+    width: 80px;
+    font-weight: bold;
+    font-size: medium;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Warna background tombol */
+.btn-primary {
+    background-color: #007bff;
+    color: white !important;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white !important;
+}
+/* Pastikan link tidak mewarisi warna default */
+.auth-link {
+    color: white !important; /* Warna putih pada teks link */
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+}
+
+#user-status {
+    display: flex;
+    flex-direction: column; /* Menampilkan elemen dalam kolom */
+    align-items: center; /* Memposisikan elemen di tengah */
+    margin-top: 10px; /* Spasi atas */
+}
+
+.logout-container {
+    margin-top: 5px; /* Spasi antara nama pengguna dan tombol logout */
+}
+
+.logout-container .btn {
+    padding: 5px 10px; /* Padding untuk tombol logout */
+    font-size: 12px; /* Ukuran font untuk tombol logout */
+}
+.account-icon, .cart-icon {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for larger screens */
+@media only screen and (min-width: 769px) {
+    .product-item {
+        width: 22%; /* Lebar produk di desktop */
+    }
+
+    .category img {
+        width: 150px; /* Ukuran gambar kategori di desktop */
+        height: 150px;
+    }
+
+    .main-banner {
+        padding: 70px; /* Padding lebih besar di desktop */
+        
+    }
+    .desktop-only {
+        display: block; /* Show login/register on desktop */
+    }
+
+    .search-bar {
+        order: -1; /* Move search bar to the left of login/register */
+        margin-right: 20px; /* Add space between search bar and login/register */
+    }
+    .nav-menu {
+        gap: 30px; /* Adjust spacing between the menu items */
+    }
+
+    .header-right {
+        margin-left: 40px; /* Increase space between nav-menu and search bar */
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-menu ul li {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid white;
+    }
+
+    .nav-menu ul li a {
+        color: white;
+        text-decoration: none;
+        width: 100%;
+    }
+
+    /* Hide the desktop-only login button */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Show the Masuk/Daftar in the nav menu */
+    .mobile-only {
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        position: absolute; /* Posisikan di sudut kanan atas */
+        top: 20px; /* Sesuaikan agar berada di dalam header */
+        right: 20px; /* Sejajarkan ke tepi kanan */
+        z-index: 2;
+    }
+    
+    .hamburger .bar {
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+
+    /* Styles for when the menu is open */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    .search-bar {
+        flex: 1;
+        margin-right: 0; /* Remove right margin for mobile */
+        margin-left: auto; /* Push search bar to the right */
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column; /* Mengatur header menjadi kolom */
+        align-items: flex-start;
+        padding: 10px;
+    }
+    .container {
+        margin-top: 100px; /* Sesuaikan jarak container dari header pada mobile */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Jarak bawah logo */
+    }
+    
+
+    .header-right {
+        width: 100%; /* Lebar penuh untuk elemen kanan */
+        justify-content: space-between; /* Menjaga jarak antara input pencarian dan tautan akun */
+    }
+
+    .search-bar {
+        /* margin: 5px 0; Jarak atas dan bawah */
+        flex: 1;
+        margin-right: 0; /* Remove right margin for mobile */
+        margin-left: auto; /* Push search bar to the right */
+        width: 100%;
+        
+    }
+
+    
+}
